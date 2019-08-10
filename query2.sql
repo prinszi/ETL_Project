@@ -1,6 +1,6 @@
-drop table if exists emissions;
 drop table if exists mortality;
-drop table if exists county;
+drop table if exists emissions;
+-- drop table if exists county;
 
 create table emissions (
 	county varchar primary key,
@@ -25,7 +25,8 @@ create table mortality (
 	mort_2005 int, 
 	mort_2010 int, 
 	mort_2014 int,
-	percent_mort_change int
+	percent_mort_change int,
+	FOREIGN KEY (county) REFERENCES emissions(county)
 );
 
-select * from mortality;
+select * from emissions;
